@@ -1,0 +1,65 @@
+   ▲ Next.js 15.5.14 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://10.1.0.60:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ○ Compiling middleware ...
+ ✓ Compiled middleware in 611ms
+ ✓ Ready in 1834ms
+ ○ Compiling / ...
+ ✓ Compiled / in 10.6s
+ GET / 200 in 11909ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 612ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 923ms
+ GET / 200 in 163ms
+ GET / 200 in 151ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 142ms
+ GET / 200 in 1161ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 291ms
+ ✓ Compiled in 134ms
+ GET / 200 in 947ms
+ ✓ Compiled in 138ms
+ ✓ Compiled in 126ms
+MessageInput render: { input: undefined, inputLength: undefined, isLoading: false }
+ GET / 200 in 1027ms
+ ✓ Compiled in 165ms
+useAIChat result: {
+  messages: 0,
+  input: undefined,
+  handleInputChange: 'undefined',
+  handleSubmit: 'undefined',
+  status: 'ready'
+}
+MessageInput render: { input: undefined, inputLength: undefined, isLoading: false }
+ GET / 200 in 950ms
+ ✓ Compiled in 168ms
+ ✓ Compiled in 152ms
+ ✓ Compiled in 110ms
+ ✓ Compiled in 165ms
+ ✓ Compiled in 131ms
+ ✓ Compiled in 106ms
+useAIChat result: {
+  messages: 0,
+  input: undefined,
+  handleInputChange: 'undefined',
+  handleSubmit: 'undefined',
+  status: 'ready'
+}
+MessageInput render: { input: '', inputLength: 0, isLoading: false }
+ GET / 200 in 1046ms
+ ✓ Compiled in 136ms
+ ✓ Compiled in 142ms
+ ✓ Compiled in 118ms
+ ✓ Compiled in 119ms
+ GET / 200 in 981ms
+ ✓ Compiled in 157ms
+ ✓ Compiled in 109ms
+ ✓ Compiled in 106ms
+ GET / 200 in 998ms

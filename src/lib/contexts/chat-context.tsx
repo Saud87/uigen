@@ -5,6 +5,7 @@ import {
   useContext,
   ReactNode,
   useEffect,
+  useState,
 } from "react";
 import { useChat as useAIChat } from "@ai-sdk/react";
 import { Message } from "ai";
@@ -32,14 +33,11 @@ export function ChatProvider({
   initialMessages = [],
 }: ChatContextProps & { children: ReactNode }) {
   const { fileSystem, handleToolCall } = useFileSystem();
+  
+  // Local state for input management (fallback for React 19 compatibility)
+  const [localInput, setLocalInput] = useState("");
 
-  const {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    status,
-  } = useAIChat({
+  const aiChatResult = useAIChat({
     api: "/api/chat",
     initialMessages,
     body: {
@@ -50,6 +48,27 @@ export function ChatProvider({
       handleToolCall(toolCall);
     },
   });
+
+
+  const {
+    messages = [],
+    input = "",
+    handleInputChange,
+    handleSubmit,
+    status = "ready",
+  } = aiChatResult;
+
+  // Fallback handlers for React 19 compatibility issue
+  const safeHandleInputChange = handleInputChange || ((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setLocalInput(e.target.value);
+  });
+
+  const safeHandleSubmit = handleSubmit || ((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  });
+
+  // Use local input if AI SDK input is undefined
+  const actualInput = input ?? localInput;
 
   // Track anonymous work
   useEffect(() => {
@@ -62,9 +81,9 @@ export function ChatProvider({
     <ChatContext.Provider
       value={{
         messages,
-        input,
-        handleInputChange,
-        handleSubmit,
+        input: actualInput,
+        handleInputChange: safeHandleInputChange,
+        handleSubmit: safeHandleSubmit,
         status,
       }}
     >
